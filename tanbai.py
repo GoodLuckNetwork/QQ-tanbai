@@ -8,6 +8,14 @@ import requests
 import subprocess
 from prettytable import PrettyTable
 
+'''
+QQ扫码登陆部分参考：
+1.fuck-login: https://github.com/xchaoinfo/fuck-login/blob/master/005%20webQQ/webQQ.py
+2.QQ-Groups-Spider:https://github.com/caspartse/QQ-Groups-Spider/blob/98b61bd0eb4e3fc70dd1cae1864018b9d5cf6bcf/app.py
+QQ好友昵称获取：https://kylingit.com/blog/qq-%E7%A9%BA%E9%97%B4%E7%88%AC%E8%99%AB%E4%B9%8B%E6%A8%A1%E6%8B%9F%E7%99%BB%E5%BD%95/
+QQ号解密：QQ坦白说有什么bug吗？或者可以通过怎样方式去看见谁发的坦白说？ - 爱打伞的网瘾少女的回答 - 知乎
+https://www.zhihu.com/question/270498914/answer/355413819
+'''
 QRImgPath = os.path.split(os.path.realpath(__file__))[0] + os.sep + 'webQQqr.png'
 sess = requests.Session()
 sourceURL = 'https://ti.qq.com/cgi-node/honest-say/receive/mine'
@@ -105,7 +113,7 @@ while True :
             print('扫码成功，请确认登录')
             status = 1
         if code == '0' :
-            print('登录成功...')
+            print('确认登陆成功')
             break
         elif code == '65' :
             print('二维码失效, 请重新启动程序')
@@ -114,7 +122,7 @@ os.remove(QRImgPath)
 qq = re.findall(r'(?<=uin=).*?(?=&service)',resp.text)[0]
 print(qq,'登陆成功')
 skey = sess.cookies['skey']
-print('正在获取')
+print('正在获取坦白说...')
 
 tanbai_url = sourceURL + '?_client_version=0.0.79&token=' + genbkn(skey)
 tanbai = sess.get(tanbai_url,headers = headers,timeout=1000)
