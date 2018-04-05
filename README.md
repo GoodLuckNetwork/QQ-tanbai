@@ -1,4 +1,4 @@
-#QQ坦白说
+# QQ坦白说
 
 ```python
 python tanbai.py
