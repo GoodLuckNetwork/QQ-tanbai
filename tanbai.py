@@ -36,14 +36,13 @@ def genbkn(skey):
         return str(bkn)
 
 def genqq(qq):
+    qq = qq.replace('4','a').replace('6','b').replace('5','d').replace('7i','l').replace('7z','l').replace('7z','l')
     en = ('oe','oK','ow','oi','7e','7K','7w','7i','Ne','NK',
-    		'on','ov','oc','oz','7n','7v','7c','7z','Nn','Nv',
-    		'n','b','-','o','v','a','C','S','c','E',
-    		'z','d','A','i','P','k','s','I','F','q')
-    qq = qq.replace('4','a').replace('6','b').replace('5','d')
+		'on','ov','oc','oz','7n','7v','7c','7z','Nn','Nv',
+		'n','b','-','o','v','a','C','S','c','E',
+		'z','d','A','i','P','k','s','l','F','q')
     for i in range(len(en)) :
     	qq = qq.replace(en[i], str(i%10), 10)
-    qq = qq.replace('l','7')
     return qq
 
 
