@@ -12,5 +12,5 @@ QQ号解密算法部分可能存在问题，欢迎提交PR。
 
 运行效果：
 
-![无标题](https://github.com/login926/QQ-tanbai/raw/master/Screenshots/tanbai.png)
+![效果](https://raw.githubusercontent.com/login926/QQ-tanbai/master/Screenshots/tanbai.png)
 
